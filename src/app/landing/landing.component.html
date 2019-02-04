@@ -29,6 +29,49 @@
   </div>
 
   <!-- Range Selector: Number of Friends to split with -->
-  <input type="range" class="custom-range" min="0" max="5" id="customRange2">
-  <div>Added random div</div>
+  <div class="position-relative friend-count-selector">
+    <input type="range" class="custom-range" min="2" max="10" id="customRange2">
+    <div class="position-absolute selector-labels">
+      <div class="friends-avatar d-inline-block"><i class="fas fa-users"></i></div>
+      <div class="count d-inline-block">4</div>
+    </div>
+  </div>
+
+  <!-- Tip selector section -->
+  <div class="tips-selector">
+    <div class="d-inline-block tip"><div class="d-inline">0%</div></div>
+    <div class="d-inline-block tip"><div class="d-inline">10%</div></div>
+    <div class="d-inline-block tip"><div class="d-inline">20%</div></div>
+    <div class="d-inline-block tip"><div class="d-inline">30%</div></div>
+  </div>
+
+  <!-- Numbers Grid -->
+  <div class="numbers-grid">
+    <div class="row text-center">
+      <div class="col-4">1</div>
+      <div class="col-4">2</div>
+      <div class="col-4">3</div>
+    </div>
+
+    <div class="row text-center">
+      <div class="col-4">4</div>
+      <div class="col-4">5</div>
+      <div class="col-4">6</div>
+    </div>
+
+    <div class="row text-center">
+      <div class="col-4">7</div>
+      <div class="col-4">8</div>
+      <div class="col-4">9</div>
+    </div>
+
+    <div class="row text-center">
+      <div class="col-4">+</div>
+      <div class="col-4">0</div>
+      <div class="col-4"><i class="fas fa-backspace"></i></div>
+    </div>
+  </div>
+
+  <!-- action button -->
+  <div class="split-action-btn text-center">SPLIT BILL</div>
 </div>

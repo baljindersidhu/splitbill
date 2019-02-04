@@ -23,6 +23,21 @@
     font-size: 1.08rem;
 }
 
+.friend-count-selector .selector-labels{
+    top: 0.7em ;
+    padding: 0px 0.5em;
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.friend-count-selector .friends-avatar{
+    width: calc(100% - 0.6em);
+}
+
+.friend-count-selector .count{
+    font-weight: 600;
+}
+
 .overview-box .first .amount{
     font-size: 2rem;
     font-weight: 500;
@@ -46,4 +61,130 @@
 .overview-box .second .list-item .value{
     display: inline-block;
     vertical-align: top;
+}
+
+.friend-count-selector{
+    padding-top: 1em;
+    margin: 0px 1em;
+}
+
+input[type=range]{
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 2em;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 3em;
+    width: 0.5em;
+    border-radius: 0.375em;
+    background: #333;
+    margin-top: -0.5em;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+input[type=range]::-ms-track {
+    width: 300px;
+    height: 5px;
+    
+    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: transparent;
+    
+    /*leave room for the larger thumb to overflow with a transparent border */
+    border-color: transparent;
+    border-width: 6px 0;
+
+    /*remove default tick marks*/
+    color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: #333;
+    border-radius: 10px;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: #ddd;
+    border-radius: 10px;
+}
+
+input[type=range]::-ms-thumb {
+    border: none;
+    height: 1em;
+    width: 0.2em;
+    border-radius: 0.375em;
+    background: #333;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: #333;
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: #ccc;
+}
+
+/* The following only affects the range input in FF */
+
+input[type="range"]::-moz-range-progress {
+  background-color: #333; 
+}
+  
+input[type="range"]::-moz-range-track {  
+  background-color: #ccc;
+}
+
+.tips-selector{
+    margin-top: 2em;
+    margin-left: 1em;
+}
+
+.tips-selector .tip{
+    font-size: 0.8rem;
+    color: #777;
+    font-weight: 800;
+    text-align: center;
+}
+
+.tips-selector .tip div{
+    border: 1px solid #ddd;
+    padding: 0.5em 1.5em;
+    border-radius: 0.375em;
+    margin-right: 2em;
+    cursor: pointer;
+}
+
+.numbers-grid{
+    margin-top: 2.5em;
+}
+
+.numbers-grid .row{
+  margin: 1.5em 0px;
+  font-weight: 600;
+}
+
+.numbers-grid .row .fa-backspace{
+    color: orangered;
+}
+
+.split-action-btn{
+    color: white;
+    background: #25d18a;
+    padding: 0.5em 0px;
+    font-weight: 500;
+    margin-top: 2em;
 }
