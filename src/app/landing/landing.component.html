@@ -2,73 +2,96 @@
   <!-- Landing Page Heading -->
   <div class="heading">Split Bill</div>
 
+  <div class="position-relative overview-card-shadow">
+    <div class="position-absolute first"></div>
+    <div class="position-absolute second"></div>
+  </div>
+
   <!-- Overview Card -->
   <div class="card landing-overview-card">
     <div class="card-body">
       <div class="overview-box">
         <div class="first">
           <div class="title">Total</div>
-          <div class="amount">$80.00</div>
+          <div class="amount">{{'$' + totalBill}}</div>
         </div>
         <div class="second">
           <div class="list-item">
             <div class="key">Bill</div>
-            <div class="value">$80.00</div>
+            <div class="value">{{'$' + totalBill}}</div>
           </div>
           <div class="list-item">
             <div class="key">Friends</div>
-            <div class="value">4</div>
+            <div class="value">{{friendsSelectorCount.value}}</div>
           </div>
           <div class="list-item">
-            <div class="key">Tips (10%)</div>
-            <div class="value">$8.00</div>
+            <div class="key">{{'Tips: ' + (tipSelected ? '(' + tipSelected + '%)': '--')}}</div>
+            <div class="value">{{tipSelected? '$' + (totalBill * (tipSelected / 100)): 0}}</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Range Selector: Number of Friends to split with -->
-  <div class="position-relative friend-count-selector">
-    <input type="range" class="custom-range" min="2" max="10" id="customRange2">
-    <div class="position-absolute selector-labels">
-      <div class="friends-avatar d-inline-block"><i class="fas fa-users"></i></div>
-      <div class="count d-inline-block">4</div>
+  <!-- Range Selector labels -->
+  <div class="friend-count-selector">
+    <div class="position-relative selector-labels">
+      <div class="position-absolute friends-avatar"><i class="fas fa-users"></i></div>
+      <div class="position-absolute count">{{friendsSelectorCount.value}}</div>
     </div>
   </div>
 
+  <!-- Range Selector: Number of Friends to split with -->
+  <input type="range" #friendsSelectorCount (input)="friendsSelectorCount.value" 
+    class="custom-range" min="0" value="2" max="10" id="friendsCount">
+
   <!-- Tip selector section -->
   <div class="tips-selector">
-    <div class="d-inline-block tip"><div class="d-inline">0%</div></div>
-    <div class="d-inline-block tip"><div class="d-inline">10%</div></div>
-    <div class="d-inline-block tip"><div class="d-inline">20%</div></div>
-    <div class="d-inline-block tip"><div class="d-inline">30%</div></div>
+    <div class="position-relative d-inline-block tip" 
+      [ngClass]="{'selected': tipSelected === 0}">
+      <div class="d-inline" (click)="selectTip(0)">0%</div>
+    </div>
+
+    <div class="position-relative d-inline-block tip" 
+      [ngClass]="{'selected': tipSelected === 10}">
+      <div class="d-inline" (click)="selectTip(10)">10%</div>
+    </div>
+
+    <div class="position-relative d-inline-block tip" 
+      [ngClass]="{'selected': tipSelected === 20}">
+      <div class="d-inline" (click)="selectTip(20)">20%</div>
+    </div>
+
+    <div class="position-relative d-inline-block tip" 
+      [ngClass]="{'selected': tipSelected === 30}">
+      <div class="d-inline" (click)="selectTip(30)">30%</div>
+    </div>
   </div>
 
   <!-- Numbers Grid -->
   <div class="numbers-grid">
     <div class="row text-center">
-      <div class="col-4">1</div>
-      <div class="col-4">2</div>
-      <div class="col-4">3</div>
+      <div class="col-4" (click)="changeBill(1)"><div class="d-inline">1</div></div>
+      <div class="col-4" (click)="changeBill(2)"><div class="d-inline">2</div></div>
+      <div class="col-4" (click)="changeBill(3)"><div class="d-inline">3</div></div>
     </div>
 
     <div class="row text-center">
-      <div class="col-4">4</div>
-      <div class="col-4">5</div>
-      <div class="col-4">6</div>
+      <div class="col-4" (click)="changeBill(4)"><div class="d-inline">4</div></div>
+      <div class="col-4" (click)="changeBill(5)"><div class="d-inline">5</div></div>
+      <div class="col-4" (click)="changeBill(6)"><div class="d-inline">6</div></div>
     </div>
 
     <div class="row text-center">
-      <div class="col-4">7</div>
-      <div class="col-4">8</div>
-      <div class="col-4">9</div>
+      <div class="col-4" (click)="changeBill(7)"><div class="d-inline">7</div></div>
+      <div class="col-4" (click)="changeBill(8)"><div class="d-inline">8</div></div>
+      <div class="col-4" (click)="changeBill(9)"><div class="d-inline">9</div></div>
     </div>
 
     <div class="row text-center">
-      <div class="col-4">+</div>
-      <div class="col-4">0</div>
-      <div class="col-4"><i class="fas fa-backspace"></i></div>
+      <div class="col-4" (click)="addMore('+')">+</div>
+      <div class="col-4" (click)="changeBill(0)">0</div>
+      <div class="col-4" (click)="delete()"><i class="fas fa-backspace"></i></div>
     </div>
   </div>
 

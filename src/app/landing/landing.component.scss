@@ -9,6 +9,30 @@
     margin: 2em 0px;
 }
 
+.overview-card-shadow{
+    width: 100%;
+    z-index: 1;
+}
+
+.overview-card-shadow .first, .overview-card-shadow .second{
+    background-color: #fff;
+    opacity: 0.1;
+    height: 7.06em;
+    width: 22em;
+    top: 2em;
+    right: 0em;
+}
+
+.overview-card-shadow .first{
+    -webkit-clip-path: polygon(20% 0, 100% 0, 64% 100%, 51% 100%);
+    clip-path: polygon(20% 0, 100% 0, 64% 100%, 51% 100%);
+}
+
+.overview-card-shadow .second{
+    -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 93%, 97% 100%, 81% 100%);
+    clip-path: polygon(50% 0%, 100% 0, 100% 93%, 97% 100%, 81% 100%);
+}
+
 .overview-box{
     color: white;
 }
@@ -21,21 +45,6 @@
 
 .overview-box .first .title{
     font-size: 1.08rem;
-}
-
-.friend-count-selector .selector-labels{
-    top: 0.7em ;
-    padding: 0px 0.5em;
-    font-size: 1.2rem;
-    width: 100%;
-}
-
-.friend-count-selector .friends-avatar{
-    width: calc(100% - 0.6em);
-}
-
-.friend-count-selector .count{
-    font-weight: 600;
 }
 
 .overview-box .first .amount{
@@ -66,6 +75,16 @@
 .friend-count-selector{
     padding-top: 1em;
     margin: 0px 1em;
+}
+
+.friend-count-selector .selector-labels{
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.friend-count-selector .count{
+  font-weight: 600;
+  right: 0;
 }
 
 input[type=range]{
@@ -168,6 +187,32 @@ input[type="range"]::-moz-range-track {
     cursor: pointer;
 }
 
+.tips-selector .tip.selected div{
+    border-color: #25d18a;
+}
+
+.tips-selector .tip.selected div:after{
+    position: absolute;
+    content: "\f00c";
+    top: -0.55em;
+    right: 3.35em;
+    background-color: #25d18a;
+    color: white;
+    font-family: 'Font Awesome 5 Free';
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    font-size: 0.5rem;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    width: 2.5em;
+    height: 1.5em;
+    padding-left: 7px;
+}
+
 .numbers-grid{
     margin-top: 2.5em;
 }
@@ -177,6 +222,13 @@ input[type="range"]::-moz-range-track {
   font-weight: 600;
 }
 
+.numbers-grid .row div{
+    transition: all .25s ease-in-out;
+}
+
+.numbers-grid .row div:hover{
+    transform: scale(1.5);
+}
 .numbers-grid .row .fa-backspace{
     color: orangered;
 }
